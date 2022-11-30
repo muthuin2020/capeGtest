@@ -11,6 +11,8 @@ run "mvn test -Dcucumber.options="--tags @SmokeTest" to run test cases that are 
 
 run "mvn test -Dcucumber.options="src/test/resources/feature/LoginTest.feature" to run LoginTest
 
+default reports can be found in "\CapeGTest\target\cucumber-reports\index.html"
+
 Note : firefox and edge drivers are not availabel in the repo. if required, download it and place it in "\Driver\" folder 
 
 remove/replace Thread.sleep() method. this was used as a adhoc solution to ge the desired result. 
