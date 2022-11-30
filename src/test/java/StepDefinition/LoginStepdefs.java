@@ -20,25 +20,32 @@ public class LoginStepdefs extends BaseAction {
 	public static BorrowCalPage borrowCalPage;
 	public static Properties envData;
 	public static Properties executionEnv;
+	public static String featurName;
+	public static String scenarioName;
 
 	@Before
 	public void setUpBrowser(Scenario scenario) {
+		featurName = scenario.getId().split(";")[0].replace("-", " ");
+		scenarioName = scenario.getName();
+		executionEnv = loadScenarioInput(System.getProperty("user.dir") + "//Env//selectEnvHere.txt");
+		System.out.println("Tests are running in : " + executionEnv.getProperty("executionEnv"));
+		envData = loadScenarioInput(
+				System.getProperty("user.dir") + "//Env//" + executionEnv.getProperty("executionEnv") + ".txt");
+		loadScenarioInput(
+				System.getProperty("user.dir") + "//Input//" + featurName + "//" + scenarioName + ".properties");
+
 		if (!driverLaunched) {
-			System.setProperty("webdriver.chrome.driver",
-					System.getProperty("user.dir") + "//Driver//chromedriver.exe");
-			// System.setProperty("executionEnv", "Test");
-			driver = new ChromeDriver();
+
+			if (envData.getProperty("browser").equalsIgnoreCase("chrome")) {
+				System.setProperty("webdriver.chrome.driver",
+						System.getProperty("user.dir") + "//Driver//chromedriver.exe");
+				driver = new ChromeDriver();
+			}
 			driver.manage().window().maximize();
 			borrowCalPage = new BorrowCalPage(driver);
 			driverLaunched = true;
 		}
-		String featurName = scenario.getId().split(";")[0].replace("-", " ");
-		String scenarioName = scenario.getName();
-		executionEnv = loadScenarioInput(System.getProperty("user.dir") + "//Env//selectEnvHere.txt");
-		System.out.println("Tests is running in : "+executionEnv.getProperty("executionEnv"));
-		envData = loadScenarioInput(System.getProperty("user.dir") + "//Env//" + executionEnv.getProperty("executionEnv") + ".txt");
-		loadScenarioInput(
-				System.getProperty("user.dir") + "//Input//" + featurName + "//" + scenarioName + ".properties");
+
 		System.out.println("Scenario name : " + scenario.getName());
 		BaseAction.driver.get(envData.getProperty("url"));
 	}
