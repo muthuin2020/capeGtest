@@ -15,6 +15,7 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.runtime.ScenarioImpl;
 
 public class LoginStepdefs extends BaseAction {
 
@@ -64,6 +65,12 @@ public class LoginStepdefs extends BaseAction {
 	public void quitBrowser() {
 		BaseAction.driver.quit();
 	}
+	
+	@After
+	public void scenarioStatus(Scenario scenario) {
+		System.out.println(scenarioName+" is "+scenario.getStatus());
+	}
+	
 
 	@Given("^Enter input values in Borrow Estimate form")
 	public void Enter_input_values_in_Borrow_Estimate_form() throws Throwable {
@@ -132,5 +139,7 @@ public class LoginStepdefs extends BaseAction {
 		}
 
 	}
+	
+	
 
 }
