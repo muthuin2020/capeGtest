@@ -4,6 +4,7 @@ import java.util.Properties;
 
 import org.junit.Assert;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import BaseActions.BaseAction;
 import BaseActions.PageActions;
@@ -35,11 +36,20 @@ public class LoginStepdefs extends BaseAction {
 				System.getProperty("user.dir") + "//Input//" + featurName + "//" + scenarioName + ".properties");
 
 		if (!driverLaunched) {
-
 			if (envData.getProperty("browser").equalsIgnoreCase("chrome")) {
 				System.setProperty("webdriver.chrome.driver",
 						System.getProperty("user.dir") + "//Driver//chromedriver.exe");
 				driver = new ChromeDriver();
+			}
+			if (envData.getProperty("browser").equalsIgnoreCase("firefox")) {
+				System.setProperty("webdriver.gecko.driver",
+						System.getProperty("user.dir") + "//Driver//geckodriver.exe");
+				driver = new FirefoxDriver();
+			}
+			if (envData.getProperty("browser").equalsIgnoreCase("edge")) {
+				System.setProperty("webdriver.edge.driver",
+						System.getProperty("user.dir") + "//Driver//EdgeDriver.exe");
+				driver = new FirefoxDriver();
 			}
 			driver.manage().window().maximize();
 			borrowCalPage = new BorrowCalPage(driver);

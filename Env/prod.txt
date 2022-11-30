@@ -2,3 +2,4 @@ url=https://www.anz.com.au/personal/home-loans/calculators-tools/much-borrow/
 userName=muthu
 mongoURL="Prod mongo server"
 SQLServerURL="Prod SQL server"
+browser=edge
