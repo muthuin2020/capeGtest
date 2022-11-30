@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PageActions extends BaseAction {
 
-	int waitTime = 40;
+	int waitTime = 60;
 
 	public String getPageTitle() {
 		return driver.getTitle();

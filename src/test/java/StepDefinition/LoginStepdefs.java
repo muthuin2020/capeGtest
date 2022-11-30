@@ -91,14 +91,21 @@ public class LoginStepdefs extends BaseAction {
 
 	@Then("^verify fields are reset in the form$")
 	public void verify_fields_are_reset_in_the_form() throws Throwable {
-		Thread.sleep(2000);
+		Thread.sleep(1000);
+		Assert.assertEquals(scenarioInput.getProperty("expectedAppTypeOut"), borrowCalPage.getAppType());
+		Assert.assertEquals(scenarioInput.getProperty("expectedPropertyOut"), borrowCalPage.getSelectedProperty());
 		Assert.assertEquals(scenarioInput.getProperty("expectedOut"), borrowCalPage.getAnualIncome());
+		Assert.assertEquals(scenarioInput.getProperty("expectedOut"), borrowCalPage.getNoOfDependants());
+		Assert.assertEquals(scenarioInput.getProperty("expectedOut"), borrowCalPage.getOtherIncome());
+		Assert.assertEquals(scenarioInput.getProperty("expectedOut"), borrowCalPage.getMonthlyExpense());
+		Assert.assertEquals(scenarioInput.getProperty("expectedOut"), borrowCalPage.getHomeLoanRepayment());
+		Assert.assertEquals(scenarioInput.getProperty("expectedOut"), borrowCalPage.getOtherLoanRepayment());
+		Assert.assertEquals(scenarioInput.getProperty("expectedOut"), borrowCalPage.getCreditCardLimit());
 	}
 
 	@Then("^Verify Error message$")
 	public void Verify_Error_message() throws Throwable {
 		Assert.assertEquals(scenarioInput.getProperty("expectedOut"), borrowCalPage.getBorrowInEligibleError());
-
 	}
 
 	public void enterValuesInForm() {

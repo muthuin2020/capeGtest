@@ -47,9 +47,9 @@ public class BorrowCalPage extends PageActions{
 	return getTextOfElement(selectedProperty);
  }
  
- public WebElement getNoOfDependants()
+ public String getNoOfDependants()
  {
-	return getSelectedFromDropdown(noOfDependants);
+	return getSelectedFromDropdown(noOfDependants).getText();
  }
  
  public String getAnualIncome()
