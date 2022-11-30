@@ -1,0 +1,4 @@
+url=https://www.anz.com.au/personal/home-loans/calculators-tools/much-borrow/
+userName=muthu
+mongoURL="test mongo server"
+SQLServerURL="tes SQL server"

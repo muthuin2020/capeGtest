@@ -1,0 +1,4 @@
+url=https://google.com
+userName=muthu
+mongoURL="Dev mongo server"
+SQLServerURL="Dev SQL server"
