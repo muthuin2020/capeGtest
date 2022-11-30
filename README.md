@@ -5,3 +5,5 @@ create properties file in the name of the test scenario and provide all input da
 run "mvn test" to run test cases
 run "mvn test -Dcucumber.options="--tags @SmokeTest" to run test cases that are tagged as smoke
 run "mvn test -Dcucumber.options="src/test/resources/feature/LoginTest.feature" to run LoginTest
+
+Note : firefox and edge drivers are not availabel in the repo. if required, download it and place it in "\Driver\" folder 
