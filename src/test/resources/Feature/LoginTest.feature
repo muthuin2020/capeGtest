@@ -13,7 +13,7 @@ Feature: Login Test
     When Click on Start over button
     Then verify fields are reset in the form
 
-  @SmokeTest @last
+  @NegativeTest @last
   Scenario: Submit form with Living expense alone and Verify Error message
     Given Enter input values in Borrow Estimate form
     When submit values in Borrow Estimate form
