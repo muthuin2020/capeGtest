@@ -64,6 +64,7 @@ public class LoginStepdefs extends BaseAction {
 	@After("@last")
 	public void quitBrowser() {
 		BaseAction.driver.quit();
+		driverLaunched=false;
 	}
 	
 	@After
